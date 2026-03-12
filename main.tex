@@ -61,36 +61,44 @@ Quantum microstates are operationally indistinguishable within finite-support He
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
-\caption{\textbf{Information erasure inside conjugate action quanta} (schematic). 
-System boundaries $\Delta q$ and $\Delta p$ determine the total action $A = \pi \hbar$, while the reciprocal relations $\delta_q = 2\hbar / \Delta p$ and $\delta_p = 2\hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of action quanta: $A_q = \frac{\pi}{4} \delta_q \Delta p = \frac{\pi \hbar}{2}$ and $A_p = \frac{\pi}{4} \Delta q \delta_p = \frac{\pi \hbar}{2}$. The variables $\epsilon_q$ and $\epsilon_p$ represent the erasure distances from the microstate $\mu_{q,p}$ with binary encoding $s_\mu$ to the macrostate $(q,p)$ with the minimal binary encoding $\mathbf{s^*}$, where bit-length $|\mathbf{s^*}| \le |s_\mu|$; the physical scales satisfy $A = A_q + A_p = \pi \hbar$, $\epsilon_q \le \delta_q \le \Delta q$, and $\epsilon_p \le \delta_p \le \Delta p$.}
+\caption{\textbf{Information erasure inside conjugate Heisenberg blobs} (schematic). 
+System boundaries $\Delta q$ and $\Delta p$ determine the total action $A$, while the reciprocal relations $\delta q \approx 1 / \Delta p$ and $\delta p \approx 1 / \Delta q$ characterize the symplectic squeezing of the conjugate pair of action quanta: $A_{\delta q} = \frac{\pi}{4} \delta_q \Delta p$ and $A_{\delta p} = \frac{\pi}{4} \Delta q \delta p$. The variables $\epsilon_q$ and $\epsilon_p$ represent the erasure distances from the microstate $q_\mu, p_\mu$ with binary encoding $s_\mu$ to the macrostate $(q,p)$ with the minimal binary encoding $\mathbf{s}^*$, where bit-length $|\mathbf{s}^*| \le |s_\mu|$; the physical scales satisfy $A_q + A_p = \pi \hbar$, $\epsilon_q \le \delta_q \le \Delta q$, and $\epsilon_p \le \delta_p \le \Delta p$.}
 
 \label{fig:erase}
 \end{figure}
 
 \section{Equations}
+
 \begin{equation}
-\label{eq:SimpleLanguage}
-\text{Erasure Action} \le \text{Phase Space Area}
+\label{eq:SimpleLanguageHero}
+\text{Erasure Action} \le \text{Total Phase Area}
 \end{equation}
 
 \begin{equation}
-\label{eq:InfoAction}
+\label{eq:Hero}
 K E_L \tau \le A
 \end{equation}
 
 \begin{equation}
-\label{eq:ActionArea}
-(K_q + K_p) E_L \tau \le \frac{A}{\pi \hbar} (A_q + A_p)
+\label{eq:ConjugateActionArea}
+(K_q + K_p) E_L \tau \le \frac{A}{\pi \hbar} (A_{\delta q} + A_{\delta p})
+\end{equation}
+
+
+\begin{equation}
+\label{eq:SimpleLanguageBlobs}
+\text{Minimal Action} = \text{Conjugate Blob Areas}
 \end{equation}
 
 \begin{equation}
-\label{eq:QuantumOfAction}
-A_{\delta q} + A_{\delta p} = \pi \hbar
+\label{eq:Blobs}
+\pi \hbar = A_{\delta q} + A_{\delta p}
 \end{equation}
 
+
 \begin{equation}
-\label{eq:ActionAreas}
-A_q = \frac{\pi}{4} \delta q \Delta p \quad \text{and} \quad A_p = \frac{\pi}{4}\delta p \Delta q
+\label{eq:BlobAreas}
+A_{\delta q} = \frac{\pi}{4} \delta q \Delta p \quad \text{and} \quad A_{\delta p} = \frac{\pi}{4}\delta p \Delta q
 \end{equation}
 
 \begin{equation}
@@ -102,7 +110,7 @@ A_q = \frac{\pi}{4} \delta q \Delta p \quad \text{and} \quad A_p = \frac{\pi}{4}
 
 The orthodox application of the Heisenberg Uncertainty Principle implies that as a system's total action scales up, its minimal phase-space area---the single ``blob'' defined by $\Delta q \Delta p$---must expand. However, the foundational architects of quantum mechanics recognized immediately that this mathematical behavior contradicts the macroscopic world. As Schr\"{o}dinger observed in 1926 \cite{Schrodinger1926}, and Einstein formally critiqued in 1953 \cite{Einstein1953}, permitting a single uncertainty cell to grow proportionately with a system's energy strictly predicts that everyday objects should exist as delocalized, unobservable smears. 
 
-This unphysical prediction would later drive theorists to formally define the strict boundaries of empirical macrorealism \cite{Popper1967, LeggettGarg1985}. While Schr\"{o}dinger ultimately patched this macroscopic paradox by introducing coherent states---relying on the infinite superposition of wavefunctions to force localization---and others relegated the expanding uncertainty strictly to statistical ensembles \cite{Ballentine1970}, we propose a strictly geometric solution. Here, macroscopic scaling is achieved through a pair of orthogonal, conjugate phase-space blobs, governed by polar duals that strictly conserve the fundamental action area of $\pi \hbar$.
+This unphysical prediction would later drive theorists to formally define the strict boundaries of empirical macrorealism \cite{Popper1967, LeggettGarg1985}. While Schr\"{o}dinger ultimately patched this macroscopic paradox by introducing coherent states---relying on the infinite superposition of wavefunctions to force localization---and others relegated the expanding uncertainty strictly to statistical ensembles \cite{Ballentine1970}, we propose a strictly geometric solution. Here, macroscopic scaling is achieved through a pair of orthogonal, conjugate phase-space blobs, governed by polar duals $A_{\delta q}  + A_{\delta p}$ that strictly conserve the fundamental action area of $\pi \hbar$.
 
 Visually, this geometric evolution paints a remarkably intuitive picture of the transition from quantum uncertainty to classical precision. At the absolute lowest action state, these conjugate blobs are isotropic, appearing as completely overlapping perfect circles in phase space. However, as the system's total action scales up, the area does not uniformly expand into an unobservable blur. Instead, the geometry strictly enforces the equipartition of action by dynamically squeezing the shapes into a pair of orthogonal ellipses---one stretching horizontally while its dual stretches vertically. As the system continues toward the macroscopic limit, these orthogonal ``cigars'' narrow relentlessly, ultimately intersecting as fine crosshairs. This precise intersection elegantly and deterministically recovers the sharp, localized point of classical macrorealism, saving the correspondence principle purely through geometry.
 
