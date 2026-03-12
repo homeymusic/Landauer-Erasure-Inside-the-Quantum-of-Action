@@ -46,7 +46,7 @@
 \title{Information Erasure Inside Heisenberg Blobs}
 
 \begin{abstract}
-Quantum microstates are operationally indistinguishable within finite-support Heisenberg blobs. These de Gosson ellipses in phase space exist as conjugate pairs, emerging from the Hamiltonian’s potential and kinetic components. Within this action geometry, the principle of least action compels Landauer information erasure. This erasure precludes the classical continuum, necessitating discrete configurations and the emergence of quantum mechanics.
+Quantum microstates are operationally indistinguishable within finite-support Heisenberg areas in phase space. Within these action blobs, the principle of least action compels Landauer information erasure of quantum microstates into coarse-grained observables. This erasure precludes the classical continuum, necessitating discrete configurations and the emergence of quantum mechanics.
 \end{abstract}
 
 \author{Brian S. Mulloy\orcidlink{0000-0002-1803-3172}}
@@ -95,6 +95,21 @@ K E_L \tau \le A
 \pi \hbar = A_{\delta q} + A_{\delta p}
 \end{equation}
 
+\begin{equation}
+    \text{Area}(\mathcal{E}_{\delta q}) = A_{\delta q}
+\end{equation}
+
+\begin{equation}
+    \text{Area}(\mathcal{E}_{\delta p}) = A_{\delta p}
+\end{equation}
+
+\begin{equation}
+\mathcal{E}_{\delta q}: \quad \frac{4q^2}{\delta q^2} + \frac{4p^2}{\Delta p^2} \le 1
+\end{equation}
+
+\begin{equation}
+\mathcal{E}_{\delta p}: \quad \frac{4q^2}{\Delta q^2} + \frac{4p^2}{\delta p^2} \le 1
+\end{equation}
 
 \begin{equation}
 \label{eq:BlobAreas}
@@ -104,6 +119,38 @@ A_{\delta q} = \frac{\pi}{4} \delta q \Delta p \quad \text{and} \quad A_{\delta 
 \begin{equation}
 \label{eq:ErasureTimeMargolusLevitin}
 \tau_{K=2} = \tau_\perp = \frac{\pi \hbar}{2 E_L}
+\end{equation}
+
+We define the \textbf{conjugate exchange operator}, denoted by $^\circledcirc$, as the physical mapping that precisely swaps the local microscopic precisions ($\delta q, \delta p$) with their respective macroscopic spreads ($\Delta q, \Delta p$) while preserving the fundamental capacity area of $\pi \hbar / 2$. 
+
+For a general physical system (e.g., a particle in a 1D box), the conjugate observational bounds are defined universally as:
+
+\begin{equation}
+    \mathcal{E}_{\delta q}: \quad \frac{4q^2}{\delta q^2} + \frac{4p^2}{\Delta p^2} \le 1
+\end{equation}
+
+\begin{equation}
+    \mathcal{E}_{\delta p}: \quad \frac{4q^2}{\Delta q^2} + \frac{4p^2}{\delta p^2} \le 1
+\end{equation}
+
+These two bounding areas are therefore symplectically squeezed conjugates of one another, mathematically expressed as:
+
+\begin{equation}
+    \mathcal{E}_{\delta q} = \mathcal{E}_{\delta p}^\circledcirc
+\end{equation}
+
+\subsection*{The Isotropic Limit: Polar Duality in the QHO}
+
+In the perfectly isotropic limit where the physical potential strictly perfectly matches the symmetry of the phase space (such as the ground state of the Quantum Harmonic Oscillator, where $\Delta q \equiv \Delta p$ and $\delta q \equiv \delta p$), the conjugate exchange operator reduces to the standard $\hbar$-scaled geometric polar dual:
+
+\begin{equation}
+    \mathcal{E}_{\delta p}^\circledcirc \equiv \mathcal{E}_{\delta p}^\circ
+\end{equation}
+
+Thus, only in the completely symmetric case do the two observational bounds collapse into exact mathematical polar duals of one another:
+
+\begin{equation}
+    \mathcal{E}_{\delta q} = \mathcal{E}_{\delta p}^\circ
 \end{equation}
 
 \subsection{One Blob or Two?}
