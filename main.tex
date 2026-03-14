@@ -62,7 +62,7 @@ Quantum microstates are operationally indistinguishable within finite-support He
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
 \caption{\textbf{Information erasure inside conjugate Heisenberg blobs} (schematic). 
-System boundaries $\Delta q$ and $\Delta p$ determine the total action $A$, while the reciprocal relations $\delta q \approx 1 / \Delta p$ and $\delta p \approx 1 / \Delta q$ characterize the symplectic squeezing of the conjugate pair of action quanta: $A_{\delta q} = \frac{\pi}{4} \delta_q \Delta p$ and $A_{\delta p} = \frac{\pi}{4} \Delta q \delta p$. The variables $\epsilon_q$ and $\epsilon_p$ represent the erasure distances from the microstate $q_\mu, p_\mu$ with binary encoding $s_\mu$ to the macrostate $(q,p)$ with the minimal binary encoding $\mathbf{s}^*$, where bit-length $|\mathbf{s}^*| \le |s_\mu|$; the physical scales satisfy $A_q + A_p = \pi \hbar$, $\epsilon_q \le \delta_q \le \Delta q$, and $\epsilon_p \le \delta_p \le \Delta p$.}
+System boundaries $\Delta q$ and $\Delta p$ determine the total action $A$, while the reciprocal relations $\delta q \propto 1 / \Delta p$ and $\delta p \propto 1 / \Delta q$ characterize the symplectic squeezing of the conjugate pair of action quanta: $A_{\delta q} = \frac{\pi}{4} \delta_q \Delta p$ and $A_{\delta p} = \frac{\pi}{4} \Delta q \delta p$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from the microstate $q_\mu, p_\mu$ with binary encoding $s_\mu$ to the minimal action state $(q^*,p^*)$ with the minimal binary encoding $\mathbf{s}^*$, where bit-length $|\mathbf{s}^*| \le |s_\mu|$; the physical scales satisfy $A_q + A_p = h$, $\epsilon_q \le \delta_q \le \Delta q$, and $\epsilon_p \le \delta_p \le \Delta p$.}
 
 \label{fig:erase}
 \end{figure}
@@ -118,14 +118,25 @@ A_{\delta q} = \frac{\pi}{4} \delta q \Delta p = \frac{h}{2} \quad \text{and} \q
 \end{equation}
 
 \begin{equation}
-\label{eq:ErasureTimeMargolusLevitin}
-\tau_{K=2} = \tau_\perp = \frac{h}{4 E_L}
+\label{eq:ErasureDistance}
+\epsilon_q = q_\mu - q^*  \quad \text{and} \quad \epsilon_p = p_\mu - p^* 
 \end{equation}
 
+
+
 \begin{equation}
-\label{eq:GreatUnityBlob}
-A_{unity} = \frac{\pi}{4} \delta q \delta p = \frac{h}{2} \quad (K=1)
+\label{eq:ObservedCoordinate}
+q = \frac{A}{h} \epsilon_q  \quad \text{and} \quad p = \frac{A}{h} \epsilon_p
 \end{equation}
+
+
+\begin{equation}
+\label{eq:ErasureTimeMargolusLevitin}
+\tau_\perp = \frac{h}{4 E_L}
+\end{equation}
+
+
+
 
 \begin{equation}
 \label{eq:TopologicalQuantumNumber}
@@ -168,7 +179,7 @@ Thus, only in the completely symmetric case do the two observational bounds coll
 
 The orthodox application of the Heisenberg Uncertainty Principle implies that as a system's total action scales up, its minimal phase-space area---the single ``blob'' defined by $\Delta q \Delta p$---must expand. However, the foundational architects of quantum mechanics recognized that this mathematical behavior contradicts the macroscopic world. As Schr\"{o}dinger observed in 1926 \cite{Schrodinger1926}, and Einstein formally critiqued in 1953 \cite{Einstein1953}, permitting a single uncertainty cell to grow proportionately with a system's energy strictly predicts that everyday objects should exist as delocalized, unobservable smears. 
 
-This unphysical prediction would later drive theorists to formally define the strict boundaries of empirical macrorealism \cite{Popper1967, LeggettGarg1985}. While Schr\"{o}dinger ultimately patched this macroscopic paradox by introducing coherent states---relying on the infinite superposition of wavefunctions to force localization---and others relegated the expanding uncertainty strictly to statistical ensembles \cite{Ballentine1970}, we propose a strictly geometric solution. Here, macroscopic scaling is achieved through a pair of orthogonal, conjugate phase-space blobs, governed by polar duals $A_{\delta q}  + A_{\delta p}$ that strictly conserve the quantum of action $h$.
+This unphysical prediction would later drive theorists to formally define the strict boundaries of empirical macrorealism \cite{Popper1967, LeggettGarg1985}. While Schr\"{o}dinger ultimately patched this macroscopic paradox by introducing coherent states---relying on the infinite superposition of wavefunctions to force localization---and others relegated the expanding uncertainty strictly to statistical ensembles \cite{Ballentine1970}, we propose a strictly geometric solution. Here, macroscopic scaling is achieved through a pair of orthogonal, conjugate phase-space areas, governed by orthogonal duals $A_{\delta q}  + A_{\delta p}$ that strictly conserve the quantum of action $h$.
 
 Where de Gosson \cite{degosson2009iceberg} illustrated the constraint on a single symplectic area by recalling the biblical camel:
 \begin{quote}
@@ -179,7 +190,7 @@ Where de Gosson \cite{degosson2009iceberg} illustrated the constraint on a singl
 ``He squeezed one eye no wider than the eye of a needle; he opened the other wider than the mouth of a mead-cup.'' \cite{boyd2025essential, kinsella1969tain, windischdunn1914tain, lebornahuidre}
 \end{quote}
 
-Visually, this geometric evolution paints a remarkably intuitive picture of the transition from quantum uncertainty to classical precision. At the absolute ground state, this conjugate pair is perfectly degenerate, operating as a single isotropic circle in phase space. However, as the system's total action scales up, the area does not uniformly expand into an unobservable blur. Instead, the geometry squeezes the blobs into a pair of orthogonal ellipses---one stretching horizontally while its dual stretches vertically. As the system continues toward the macroscopic limit, these orthogonal cigar shapes narrow relentlessly, ultimately sharpening into fine crosshairs. This precise intersection recovers the sharp, localized point of classical macrorealism, saving the correspondence principle purely through geometry.
+Visually, this geometric evolution paints a remarkably intuitive picture of the transition from quantum uncertainty to classical precision. At the absolute ground state, this conjugate pair is perfectly degenerate, operating as a single isotropic circle in phase space. However, as the system's total action scales up, the area does not uniformly expand into an unobservable blur. Instead, the geometry squeezes the blobs into a pair of orthogonal ellipses---one stretching horizontally while its dual stretches vertically. As the system continues toward the macroscopic limit, these orthogonal cigar shapes narrow relentlessly, ultimately sharpening into fine crosshairs. This precise intersection recovers the sharp, localized point of classical macrorealism, restoring the correspondence principle purely through geometry.
 
 \subsection{The Information-Action Limit}
 
