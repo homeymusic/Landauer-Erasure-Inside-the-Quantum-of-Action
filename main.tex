@@ -45,7 +45,7 @@
 \title{Information Erasure Inside the Quantum of Action}
 
 \begin{abstract}
-Quantum microstates are operationally indistinguishable inside Planck's quantum of action. Within this finite area of phase space, the principle of least action compels Landauer information erasure of these microstates into minimal-action states. This erasure precludes the classical continuum, necessitating discrete configurations and the emergence of quantum mechanics.
+Quantum microstates are operationally indistinguishable inside Planck's quantum of action. Within this finite area of phase space, the principle of least action compels Landauer information erasure of each microstate into the minimal-action state. This erasure precludes the classical continuum, necessitating discrete configurations and the emergence of quantum mechanics.
 \end{abstract}
 
 \author{Brian S. Mulloy\orcidlink{0000-0002-1803-3172}}
@@ -61,7 +61,7 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
 \caption{\textbf{Information erasure inside the quantum of action} (schematic). 
-System boundaries $\Delta q$ and $\Delta p$ determine the total action area, $A$, while the reciprocal relations $\delta q \propto 1 / \Delta p$ and $\delta p \propto 1 / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta_q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from the microstate $(q_\mu, p_\mu)$ with binary encoding $s_\mu$ to the minimal action state $(q^*,p^*)$ with the minimal binary encoding $\mathbf{s}^*$, where the minimal bit-length is the Kolmogorov complexity $K = |\mathbf{s}^*| \le |s_\mu|$. The physical scales satisfy $\epsilon_q \le \delta q \le \Delta q$ and $\epsilon_p \le \delta p \le \Delta p$.}
+System boundaries $\Delta q$ and $\Delta p$ determine the total action area, $A$, while the reciprocal relations $\delta q = \hbar / \Delta p$ and $\delta p = \hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta_q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from each microstate $(q_\mu, p_\mu)$ with binary encoding $s_\mu$ to the minimal-action state $(q^*,p^*)$ with the minimal binary encoding $\mathbf{s}^*$, where the minimal bit length is the Kolmogorov complexity $K = |\mathbf{s}^*| \le |s_\mu|$. The physical scales satisfy $\epsilon_q \le \delta q \le \Delta q$ and $\epsilon_p \le \delta p \le \Delta p$.}
 
 \label{fig:erase}
 \end{figure}
@@ -94,11 +94,11 @@ In the standard interpretation of the Heisenberg Uncertainty Principle, as a sys
 
 This unphysical prediction would later drive theorists to formally define the strict boundaries of empirical macrorealism \cite{Popper1967, LeggettGarg1985}. While Schr\"{o}dinger patched this macroscopic paradox by introducing coherent states---relying on the infinite superposition of wavefunctions to force localization---and others relegated the expanding uncertainty strictly to statistical ensembles \cite{Ballentine1970}, we propose a geometric solution. Here, quantum and macroscopic scaling are achieved through a pair of orthogonal conjugate quantum blobs whose sum strictly conserves the quantum of action $h$.
 
-Where de Gosson \cite{degosson2009iceberg} illustrated the constraint on a single quantum blob by recalling the biblical camel:
+Where de Gosson \cite{degosson2009iceberg} illustrated the symplectic constraint on a single quantum blob by recalling the biblical camel:
 \begin{quote}
 ``It is easier for a camel to pass through the eye of a needle than for one who is rich to enter the kingdom of God.''
 \end{quote}
-\noindent our model requires a conjugate pair of quantum blobs. As one blob is squeezed through the needle's eye, its polar dual must proportionately expand---a reciprocal geometry manifested by the \textit{r\'iastrad} (distortion) of the Old Irish hero C\'u Chulainn:
+\noindent our model requires a conjugate pair of quantum blobs. As one blob is squeezed through the needle's eye, its action dual must proportionately expand. This reciprocal geometry is manifested in the \textit{r\'iastrad} (distortion) of the Old Irish hero C\'u Chulainn:
 \begin{quote}
 ``He squeezed one eye no wider than the eye of a needle; he opened the other wider than the mouth of a mead-cup.'' \cite{RiastradNote}
 \end{quote}
@@ -108,11 +108,6 @@ In the ground state, this conjugate pair is degenerate, operating as a single is
 \begin{equation}
 \label{eq:ConjugateActionArea}
 (K_q + K_p) E_L \tau \le \frac{A}{h} (\pi \delta q \Delta p + \pi \Delta q \delta p)
-\end{equation}
-
-\begin{equation}
-\label{eq:TotalSystemArea}
-A = \pi \Delta q \Delta p
 \end{equation}
 
 \begin{equation}
@@ -136,6 +131,17 @@ h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \end{equation}
 
 \begin{equation}
+\label{eq:GeometricUncertaintyPrinciple}
+\text{uncertainty} =\pi \delta q \delta p = \frac{\pi \hbar^2}{\Delta p \Delta q} = \frac{h^2}{4 \pi \Delta q \Delta p} = \frac{h^2}{4A}
+\end{equation}
+
+\begin{equation}
+\label{eq:GeometricCertaintyPrinciple}
+\text{certainty} = \frac{4A}{h^2}
+\end{equation}
+
+
+\begin{equation}
 \label{eq:ErasureDistance}
 \epsilon_q = q_\mu - q^*  \quad \text{and} \quad \epsilon_p = p_\mu - p^* 
 \end{equation}
@@ -144,6 +150,17 @@ h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \begin{equation}
 \label{eq:ObservedCoordinate}
 q = \frac{A}{h} \epsilon_q  \quad \text{and} \quad p = \frac{A}{h} \epsilon_p
+\end{equation}
+
+\begin{equation}
+\label{eq:BitBudget}
+K_q \propto \Delta p \quad \text{and} \quad K_p \propto \Delta q
+\end{equation}
+
+
+\begin{equation}
+\label{eq:TotalSystemArea}
+A = \pi \Delta q \Delta p
 \end{equation}
 
 \begin{equation}
@@ -172,7 +189,7 @@ n = \left\lfloor \frac{A}{h} \right\rfloor
         \State $x^* \gets \text{num} / \text{den}$
     \EndWhile
     \State $\epsilon_x \gets x^* - x_\mu$
-    \State \Return $x^*, \mathbf{s}^*, \epsilon_x$
+    \State \Return $\epsilon_x, x^*, \mathbf{s}^*$
 \EndFunction
 \end{algorithmic}
 
