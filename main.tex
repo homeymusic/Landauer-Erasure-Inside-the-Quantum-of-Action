@@ -71,6 +71,22 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 K E_L \tau \le A
 \end{equation}
 
+
+\begin{equation}
+\label{eq:TotalSystemArea}
+A = \pi \Delta q \Delta p
+\end{equation}
+
+\begin{equation}
+\label{eq:BitBudgetPlain}
+\text{Available Bits} \propto \text{Classical Conjugate}
+\end{equation}
+
+\begin{equation}
+\label{eq:BitBudget}
+K_q \propto \Delta p \quad \text{and} \quad K_p \propto \Delta q
+\end{equation}
+
 \subsection{One Blob or Two?}
 
 \begin{quote}
@@ -106,13 +122,15 @@ h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \delta q = \frac{\hbar}{\Delta p} \quad \text{and} \quad \delta p = \frac{\hbar}{\Delta q}
 \end{equation}
 
+\subsection{Zurek Uncertainty Principle}
+
 \begin{equation}
 \label{eq:GeometricUncertaintyPrinciplePlainLanguage}
 \text{Uncertainty} \propto \frac{1}{\text{Classical Action}}
 \end{equation}
 
 \begin{equation}
-\label{eq:GeometricUncertaintyPrinciple}
+\label{eq:ZurekUncertaintyPrinciple}
 \delta q \delta p = \frac{\hbar^2}{\Delta q \Delta p}
 \end{equation}
 
@@ -121,6 +139,8 @@ h = \pi \delta q \Delta p + \pi \Delta q \delta p
     \includegraphics[width=\linewidth]{figures/john_ellipse.pdf}
 \caption{\textbf{The John Ellipse Uncertainty} (schematic). The area of the John ellipse contained within the orthogonal pair of quantum blobs is $\pi \delta q \delta p = \frac{h^2}{4 \pi \Delta q \Delta p}$, which yields the uncertainty relation $\delta q \delta p = \frac{\hbar^2}{\Delta q \Delta p}$.}
 \end{figure}
+
+\subsection{The Principle of Least Abbreviated Action}
 
 \begin{equation}
 \label{eq:ErasureDistance}
@@ -142,16 +162,29 @@ h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \left| \oint q \, dp \right| = \pi \left( \frac{A}{h} |\epsilon_p| \right) \Delta q
 \end{equation}
 
+\begin{equation}
+\label{eq:MaupertuisVariation_q}
+\delta \oint p \, dq = \pi \left( \frac{A}{h} \right) \Delta p \, \delta |\epsilon_q| = 0
+\end{equation}
+
+\begin{equation}
+\label{eq:MaupertuisVariation_p}
+\delta \left| \oint q \, dp \right| = \pi \left( \frac{A}{h} \right) \Delta q \, \delta |\epsilon_p| = 0
+\end{equation}
 
 \begin{equation}
 \label{eq:PrincipleOfLeastAbbreviatedAction}
 \delta |\epsilon_q| = 0 \quad \text{and} \quad \delta |\epsilon_p| = 0
 \end{equation}
 
+\subsection{Excess Action}
+
 \begin{equation}
 \label{eq:ExcessAction}
-\delta q - |\epsilon_q| \quad \text{and} \quad \delta p - |\epsilon_p| 
+\xi_q = \delta q - |\epsilon_q| \quad \text{and} \quad \xi_p = \delta p - |\epsilon_p| 
 \end{equation}
+
+\subsection{Observed Phase-Space Coordinates}
 
 \begin{equation}
 \label{eq:ObservedCoordinate}
@@ -163,26 +196,11 @@ q = \frac{A}{h} \epsilon_q  \quad \text{and} \quad p = \frac{A}{h} \epsilon_p
 q = \frac{A}{h} (q_\mu - q^*)  \quad \text{and} \quad p = \frac{A}{h} (p_\mu - p^*)
 \end{equation}
 
-
-\begin{equation}
-\label{eq:BitBudgetPlain}
-\text{Available Bits} \propto \text{Classical Conjugate Limit}
-\end{equation}
-
-\begin{equation}
-\label{eq:BitBudget}
-K_q \propto \Delta p \quad \text{and} \quad K_p \propto \Delta q
-\end{equation}
-
-
-\begin{equation}
-\label{eq:TotalSystemArea}
-A = \pi \Delta q \Delta p
-\end{equation}
+\subsection{Symplectic Capacity}
 
 \begin{equation}
 \label{eq:TopologicalQuantumNumberContinuous}
-n = \frac{A}{h}
+\Gamma = \frac{A}{h}
 \end{equation}
 
 \section{Correspondences}
@@ -198,19 +216,17 @@ n = \frac{A}{h}
 \end{itemize}
 \section{Dimensionless Equations}
 
-$\pi \delta q \Delta p = \frac{h}{2}$
+\section{Dimensionless Equations}
 
-$\delta q = q_0 \widetilde{\delta q}$
-
-$\Delta p = p_0 \widetilde{\Delta p}$
-
-$\pi q_0 p_0 = \frac{h}{2}$
-
-$\pi q_0 p_0 \widetilde{\delta q} \widetilde{\Delta p} = \frac{h}{2}$
-
-$\widetilde{\delta q} \widetilde{\Delta p} = 1$
-
-$\widetilde{\delta q} = \frac{1}{\widetilde{\Delta p}}$
+\begin{align}
+\pi \delta q \Delta p &= \frac{h}{2} \\
+\delta q &= q_0 \widetilde{\delta q} \\
+\Delta p &= p_0 \widetilde{\Delta p} \\
+\pi q_0 p_0 &= \frac{h}{2} \\
+\pi q_0 p_0 \widetilde{\delta q} \widetilde{\Delta p} &= \frac{h}{2} \\
+\widetilde{\delta q} \widetilde{\Delta p} &= 1 \\
+\widetilde{\delta q} &= \frac{1}{\widetilde{\Delta p}}
+\end{align}
 
 \section{Numerical Simulations}
 
@@ -218,11 +234,12 @@ Let the generic variable $x \in \{q, p\}$ denote any phase-space coordinate.
 
 \begin{algorithmic}[1]
 \Function{erase}{$x_\mu, \delta x$}
-    \State $\text{left} \gets (-1, 0), \quad \text{right} \gets (1, 0)$
+    \State $\text{left} \gets (-1, 0)$
     \State $\text{num} \gets 0, \quad \text{den} \gets 1$
+    \State $\text{right} \gets (1, 0)$
     \State $x^* \gets \text{num} / \text{den}$
     \State $\mathbf{s}^* \gets \text{""}$
-    \While{$|x_\mu - x^*| > \delta_x$}
+    \While{$|x_\mu - x^*| > \delta x$}
         \If{$x^* < x_\mu$} 
             \State $\text{left} \gets (\text{num}, \text{den})$
             \State $\mathbf{s}^* \gets \mathbf{s}^* + \text{'1'}$
@@ -276,9 +293,9 @@ Let the generic variable $x \in \{q, p\}$ denote any phase-space coordinate.
         \item Leggett and Garg \cite{LeggettGarg1985}
     \end{itemize}
 
-    \item \textbf{Principle of Least Action}
+    \item \textbf{Principle of Least Abbreviated Action}
     \begin{itemize}
-        \item Feynman \cite{Feynman1948}
+        \item Arnold \cite{Arnold1989}
     \end{itemize}
 
 \end{itemize}
