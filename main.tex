@@ -60,6 +60,11 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 Information erasure is fundamentally bounded by the classical action space:
 
 \begin{equation}
+\label{eq:SimpleLanguageHero}
+\text{Erasure Action} \le \text{Classical Action}
+\end{equation}
+
+\begin{equation}
 \label{eq:Hero}
 K E_L \tau \le A
 \end{equation}
@@ -110,12 +115,6 @@ Expressing Zurek's reciprocal limits as phase-space areas directly yields a conj
 \pi \delta q \Delta p = \frac{h}{2} \quad \text{and} \quad \pi \Delta q \delta p = \frac{h}{2}
 \end{equation}
 
-Transitioning from a single quantum blob to a pair of quantum blobs with strict reciprocal proportionality ($\delta q \propto 1/\Delta p$ and $\delta p \propto 1/\Delta q$) evokes the \textit{r\'{i}astrad} of the Old Irish hero C\'{u} Chulainn:
-
-\begin{quote}
-``He squeezed one eye no wider than the eye of a needle; he opened the other wider than the mouth of a mead-cup.'' \cite{RiastradNote}
-\end{quote}
-
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
@@ -126,16 +125,28 @@ Transitioning from a single quantum blob to a pair of quantum blobs with strict 
 Because the simultaneous existence of both limits is required to bound the space, the total quantum of action $h$ is defined by their geometric sum:
 
 \begin{equation}
+\label{eq:SimpleLanguageBlobs}
+\text{Quantum of Action} = \text{Pair of Quantum Blobs}
+\end{equation}
+
+\begin{equation}
 \label{eq:Blobs}
 h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \end{equation}
 
-Applying this dual-capacity definition of $h$ to the erasure limit (Eq.~\ref{eq:Hero}) partitions the thermodynamic cost into its orthogonal coordinate and momentum components:
+Applying this dual-capacity definition of $h$ to the erasure limit (Eq.~\ref{eq:Hero}) partitions the thermodynamic cost into its coordinate and momentum components:
 
 \begin{equation}
 \label{eq:ConjugateActionArea}
 (K_q + K_p) E_L \tau \le \frac{A}{h} (\pi \delta q \Delta p + \pi \Delta q \delta p)
 \end{equation}
+
+Transitioning from a single quantum blob to a pair of quantum blobs with strict reciprocal proportionality ($\delta q \propto 1/\Delta p$ and $\delta p \propto 1/\Delta q$) evokes the \textit{r\'{i}astrad} of the Old Irish hero C\'{u} Chulainn:
+
+\begin{quote}
+``He squeezed one eye no wider than the eye of a needle; he opened the other wider than the mouth of a mead-cup.'' \cite{RiastradNote}
+\end{quote}
+
 
 \subsection{The Relationship Between Bits and Resolving Power}
 
@@ -217,7 +228,6 @@ q = \frac{A}{h} (q_\mu - q^*)  \quad \text{and} \quad p = \frac{A}{h} (p_\mu - p
     \item Zurek tile $a$ and uncertainty
     \item Susskind's ``Complexity equals Action''
 \end{itemize}
-\section{Dimensionless Equations}
 
 \section{Dimensionless Equations}
 
@@ -233,7 +243,7 @@ q = \frac{A}{h} (q_\mu - q^*)  \quad \text{and} \quad p = \frac{A}{h} (p_\mu - p
 
 \section{Numerical Simulations}
 
-Let the generic variable $x \in \{q, p\}$ denote any phase-space coordinate.
+Let the generic variable $x \in \{q, p\}$ denote any phase-space component.
 
 \begin{algorithmic}[1]
 \Function{erase}{$x_\mu, \delta x$}
