@@ -55,60 +55,89 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 \date{\today}
 
 \maketitle
-
 \subsection{Erasure Action}
 
-\begin{equation}
-\label{eq:SimpleLanguageHero}
-\text{Erasure Action} \le \text{Classical Action}
-\end{equation}
+Information erasure is fundamentally bounded by the classical action space:
 
 \begin{equation}
 \label{eq:Hero}
 K E_L \tau \le A
 \end{equation}
 
+\subsection{The Quantum Blob}
 
-\subsection{One Blob or Two?}
+\begin{equation}
+\label{eq:HeisenbergVariance}
+\sigma_q \sigma_p \ge \frac{\hbar}{2}
+\end{equation}
+
+\begin{equation}
+\label{eq:CovarianceEllipsoid}
+\frac{q^2}{2\sigma_q^2} + \frac{p^2}{2\sigma_p^2} \le 1
+\end{equation}
+
+\begin{equation}
+\label{eq:EllipsoidArea}
+A = \pi (\sqrt{2}\sigma_q) (\sqrt{2}\sigma_p) = 2\pi \sigma_q \sigma_p
+\end{equation}
+
+Saturating the Heisenberg bound ($\sigma_q \sigma_p = \hbar/2$) yields the fundamental minimum area:
+
+\begin{equation}
+\label{eq:SymplecticCapacity}
+A_{\text{blob}} = 2\pi \left( \frac{\hbar}{2} \right) = \frac{h}{2}
+\end{equation}
+
+De Gosson \cite{DeGosson2009Iceberg} recalled the symplectic camel to characterize this invariant topological capacity:
 
 \begin{quote}
 ``It is easier for a camel to pass through the eye of a needle than for one who is rich to enter the kingdom of God.'' \cite{NABRE2011}
 \end{quote}
 
-\begin{quote}
-``He squeezed one eye no wider than the eye of a needle; he opened the other wider than the mouth of a mead-cup.'' \cite{RiastradNote}
-\end{quote}
+\subsection{One Blob or Two?}
 
-\begin{equation}
-\label{eq:BlobAreas}
-\pi \delta q \Delta p = \frac{h}{2} \quad \text{and} \quad \pi \Delta q \delta p = \frac{h}{2}
-\end{equation}
-
-\begin{equation}
-\label{eq:SimpleLanguageBlobs}
-\text{Quantum of Action} = \text{Pair of Quantum Blobs}
-\end{equation}
-
-\begin{equation}
-\label{eq:Blobs}
-h = \pi \delta q \Delta p + \pi \Delta q \delta p
-\end{equation}
-
-\begin{equation}
-\label{eq:ConjugateActionArea}
-(K_q + K_p) E_L \tau \le \frac{A}{h} (\pi \delta q \Delta p + \pi \Delta q \delta p)
-\end{equation}
+Zurek \cite{Zurek2001} demonstrated that a quantum state constrained by the classical action boundaries $\Delta q$ and $\Delta p$ develops sub-Planck structures defined by the reciprocal limits:
 
 \begin{equation}
 \label{eq:BlobSqueeze}
 \delta q = \frac{\hbar}{\Delta p} \quad \text{and} \quad \delta p = \frac{\hbar}{\Delta q}
 \end{equation}
 
+Expressing Zurek's reciprocal limits as phase-space areas directly yields a conjugate pair of de Gosson's invariant capacities (see Fig.~\ref{fig:erase_schematic}):
+
+\begin{equation}
+\label{eq:BlobAreas}
+\pi \delta q \Delta p = \frac{h}{2} \quad \text{and} \quad \pi \Delta q \delta p = \frac{h}{2}
+\end{equation}
+
+Transitioning from a single quantum blob to a pair of quantum blobs with strict reciprocal proportionality ($\delta q \propto 1/\Delta p$ and $\delta p \propto 1/\Delta q$) evokes the \textit{r\'{i}astrad} of the Old Irish hero C\'{u} Chulainn:
+
+\begin{quote}
+``He squeezed one eye no wider than the eye of a needle; he opened the other wider than the mouth of a mead-cup.'' \cite{RiastradNote}
+\end{quote}
+
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
 \caption{\textbf{Information erasure inside the quantum of action} (schematic). Boundaries $\Delta q$ and $\Delta p$ determine the classical action area $A$ in phase space. The reciprocal relations $\delta q = \hbar / \Delta p$ and $\delta p = \hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$, whose sum is the quantum of action $h$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from each microstate $(q_\mu, p_\mu)$ with binary encoding $s_\mu$ to the minimal-action state $(q^*,p^*)$ with the minimal binary encoding $s^*$, where the minimal bit count is the Kolmogorov complexity $K = |s^*| \le |s_\mu|$. The physical scales satisfy $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$.}
+\label{fig:erase_schematic}
 \end{figure}
+
+Because the simultaneous existence of both limits is required to bound the space, the total quantum of action $h$ is defined by their geometric sum:
+
+\begin{equation}
+\label{eq:Blobs}
+h = \pi \delta q \Delta p + \pi \Delta q \delta p
+\end{equation}
+
+Applying this dual-capacity definition of $h$ to the erasure limit (Eq.~\ref{eq:Hero}) partitions the thermodynamic cost into its orthogonal coordinate and momentum components:
+
+\begin{equation}
+\label{eq:ConjugateActionArea}
+(K_q + K_p) E_L \tau \le \frac{A}{h} (\pi \delta q \Delta p + \pi \Delta q \delta p)
+\end{equation}
+
+\subsection{The Relationship Between Bits and Resolving Power}
 
 \begin{equation}
 \label{eq:ResolvingPowerPlain}
