@@ -143,7 +143,7 @@ This pair of quantum blobs with reciprocal proportionality evokes the \textit{r\
 
 In standard phase-space formulations, the density of states is modeled statistically using the continuous Wigner quasi-probability distribution $W(q,p)$. Here, the observed density is the deterministic result of the Landauer erasure distribution $L(q,p)$.
 
-When the environment erases a continuous microstate $(q_\mu, p_\mu)$ into the minimal-action state $(q^*, p^*)$, the physical erasure distances are bounded by the classical action and the reciprocal sub-Planck structures: $\epsilon_q = q_\mu - q^*$ and $\epsilon_p = p_\mu - p^*$, such that $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$. The observed coordinates are directly proportional to this thermodynamic displacement:
+When the environment erases a continuous microstate $(q_\mu, p_\mu)$ into the minimal-action state $(q^*, p^*)$, the physical erasure distances are bounded by the reciprocal sub-Planck structures and the classical action: $\epsilon_q = q_\mu - q^*$ and $\epsilon_p = p_\mu - p^*$, such that $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$. The observed macroscopic state $(q,p)$ is the phase-space displacement $(\epsilon_q, \epsilon_p)$ scaled by the quantum capacity $A/h$:
 
 \begin{equation}
 \label{eq:ObservedCoordinates}
@@ -160,12 +160,9 @@ L(q,p) = \sum_{\mu=1}^{N} \mathbb{I}\left( \frac{A}{h} \epsilon_q = q \right) \m
 In standard phase-space mechanics, the observable marginal densities are obtained by integrating the Wigner function over the conjugate variable. In our deterministic framework, the discrete state counts $N(q)$ and $N(p)$ emerge naturally by summing the Landauer erasure distribution $L(q,p)$ over the conjugate observables:
 
 \begin{equation}
-\label{eq:MarginalQ}
+\label{eq:Marginals}
 N(q) = \sum_{p} L(q,p)
-\end{equation}
-
-\begin{equation}
-\label{eq:MarginalP}
+\quad \text{and} \quad
 N(p) = \sum_{q} L(q,p)
 \end{equation}
 
