@@ -45,7 +45,7 @@
 \title{Information Erasure Inside the Quantum of Action}
 
 \begin{abstract}
-Quantum microstates are operationally indistinguishable inside Planck's quantum of action. We show that Landauer's principle compels the erasure of each microstate into the minimal-action state. This erasure coarse-grains the classical continuum, selecting the discrete configurations of quantum mechanics.
+Quantum microstates are operationally indistinguishable inside Planck's quantum of action. We show that Landauer's principle compels the erasure of each microstate into the minimal-action state. This erasure granulates the continuum, selecting the discrete configurations of quantum mechanics at low action and smooth classical trajectories at high action.
 \end{abstract}
 
 
@@ -57,6 +57,12 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 \maketitle
 
 \subsection{Erasure Action}
+
+\begin{equation}
+\label{eq:ErasureActionDefinition}
+\text{Erasure Action} = K E_L \tau
+\end{equation}
+
 
 \begin{equation}
 \label{eq:SimpleLanguageHero}
@@ -95,7 +101,7 @@ A_{\text{blob}} = 2\pi \left( \frac{\hbar}{2} \right) = \frac{h}{2}
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
-\caption{\textbf{Information erasure inside the quantum of action} (schematic). Boundaries $\Delta q$ and $\Delta p$ determine the classical action area $A$ in phase space. The reciprocal relations $\delta q = \hbar / \Delta p$ and $\delta p = \hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$, whose sum is the quantum of action $h$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from each microstate $(q_\mu, p_\mu)$ with binary encoding $s_\mu$ to the minimal-action state $(q^*,p^*)$ with the minimal binary encoding $s^*$, where the minimal bit count is the Kolmogorov complexity $K = |s^*| \le |s_\mu|$. The physical scales satisfy $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$.}
+\caption{\textbf{Information erasure inside the quantum of action} (schematic). Boundaries $\Delta q$ and $\Delta p$ determine the classical action area $A$ in phase space. The reciprocal relations $\delta q = \hbar / \Delta p$ and $\delta p = \hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$, whose sum is the quantum of action $h$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from each microstate $(q_\mu, p_\mu)$ with binary encoding $s_\mu$ to the minimal-action state $(q^*,p^*)$ with the minimal binary encoding $s^*$, where the minimal bit count is the Kolmogorov complexity $K = |s^*| \le |s_\mu|$. The physical scales satisfy $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$, bounding the erasure action $\frac{A}{h}(\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)$.}
 \label{fig:erase_schematic}
 \end{figure}
 
@@ -127,11 +133,42 @@ Because both areas are required to bound the space, the total quantum of action 
 h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \end{equation}
 
+Planck demonstrated that a classical phase space of area $A$ has a capacity of $N = A/h$ discrete quanta. Scaling the local quantum boundaries ($\delta q, \delta p$) by this macroscopic capacity, we construct the upper limit of the Erasure Action:
+
+\begin{equation}
+\label{eq:GeometricActionLimit}
+K E_L \tau \le \frac{A}{h} (\pi \delta q  \Delta p + \pi \Delta q \delta p)
+\end{equation}
+
+Because the minimal-action erasure path from a microstate to its target coordinate leaves residual displacements $|\epsilon_q| \le \delta q$ and $|\epsilon_p| \le \delta p$, the exact Erasure Action is the scaled area of these physical residuals:
+
+\begin{equation}
+\label{eq:ExactGeometricAction}
+K E_L \tau = \frac{A}{h} (\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)
+\end{equation}
+
+Because Zurek's reciprocal limits established $\pi \Delta p = \frac{h}{2\delta q}$ and $\pi \Delta q = \frac{h}{2\delta p}$:
+
+\begin{equation}
+\label{eq:DimensionlessSubstitution}
+K E_L \tau = \frac{A}{h} \left( |\epsilon_q| \frac{h}{2\delta q} + |\epsilon_p| \frac{h}{2\delta p} \right) = \frac{A}{2} \left( \frac{|\epsilon_q|}{\delta q} + \frac{|\epsilon_p|}{\delta p} \right)
+\end{equation}
+
+\begin{equation}
+\label{eq:Saturated}
+K E_L \tau = \frac{A}{2} \left( \frac{\delta q}{\delta q} + \frac{\delta p}{\delta p} \right) \implies K E_L \tau \le \frac{A}{2} (1+1)
+\end{equation}
+
+\begin{equation}
+\label{eq:HeroDerivation}
+K E_L \tau \le A
+\end{equation}
+
 \subsection{Erasure Action in Phase Space}
 
 \begin{equation}
 \label{eq:SimpleLanguagePhaseSpaceHero}
-\text{Erasure Action} \le \text{Quantum Capacity} \times \text{Pair of Blobs}
+\text{Erasure Action} \le (\text{Quantum Capacity} \times \text{Pair of Blobs})
 \end{equation}
 
 \begin{equation}
@@ -175,41 +212,31 @@ q = \frac{A}{h} \epsilon_q \quad \text{and} \quad p = \frac{A}{h} \epsilon_p
 \end{equation}
 
 
-\subsection{The Relationship Between Bits and Resolving Power}
+\subsection{Action, Resolution, and Bits}
 
 \begin{equation}
-\label{eq:ResolvingPowerCoordinatePlain}
-\substack{\text{Coordinate} \\ \text{Bit Budget}}
-\sim 
-\substack{\text{Coordinate} \\ \text{Resolving Power}} 
-\sim
-\substack{\text{Momentum} \\ \text{Boundary}}
+\label{eq:ResolvingPowerPlain}
+\substack{\text{Classical} \\ \text{Boundary}}
+\propto
+\substack{\text{Resolving} \\ \text{Power}} 
+\propto
+\substack{\text{Bit} \\ \text{Budget}}
 \end{equation}
 
 \begin{equation}
 \label{eq:BitBudgetResolutionCoordinate}
-K_q \sim \mathcal{R}_q \sim \Delta p
+\Delta p
+\propto 
+\frac{1}{\delta q} 
+\propto 
+K_q 
+\quad \text{and} \quad
+\Delta q
+\propto 
+\frac{1}{\delta p} 
+\propto 
+K_p 
 \end{equation}
-
-\begin{equation}
-\label{eq:ResolvingPowerMomentumPlain}
-\substack{\text{Momentum} \\ \text{Bit Budget}}
-\sim 
-\substack{\text{Momentum} \\ \text{Resolving Power}} 
-\sim
-\substack{\text{Coordinate} \\ \text{Boundary}}
-\end{equation}
-
-\begin{equation}
-\label{eq:BitBudgetResolutionMomentum}
-K_p \sim \mathcal{R}_p \sim \Delta q
-\end{equation}
-
-$$
-\mathcal{R}_q = \frac{1}{\delta q}
-\quad
-\mathcal{R}_p = \frac{1}{\delta p}
-$$
 
 \subsection{Zurek Uncertainty Principle}
 
@@ -259,6 +286,40 @@ $$
 \pi q_0 p_0 \widetilde{\delta q} \widetilde{\Delta p} &= \frac{h}{2} \\
 \widetilde{\delta q} \widetilde{\Delta p} &= 1 \\
 \widetilde{\delta q} &= \frac{1}{\widetilde{\Delta p}}
+\end{align}
+
+\subsection{Dimensionless Erasure Action and the Hero Bound}
+
+Starting from the exact geometric erasure action derived from the cross-conjugate boundaries:
+\begin{equation}
+\label{eq:ExactGeometricAction}
+\text{Erasure Action} = \frac{A}{h} (\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)
+\end{equation}
+
+We recall the areas of Zurek's conjugate quantum blobs (Eq.~\ref{eq:BlobAreas}):
+\begin{equation}
+\pi \delta q \Delta p = \frac{h}{2} \implies \pi \Delta p = \frac{h}{2 \delta q} 
+\quad \text{and} \quad 
+\pi \Delta q \delta p = \frac{h}{2} \implies \pi \Delta q = \frac{h}{2 \delta p}
+\end{equation}
+
+Substituting these macroscopic bounds into Eq.~\ref{eq:ExactGeometricAction} cleanly factors out Planck's constant:
+\begin{align}
+\text{Erasure Action} &= \frac{A}{h} \left( |\epsilon_q| \frac{h}{2\delta q} + |\epsilon_p| \frac{h}{2\delta p} \right) \nonumber \\
+&= \frac{A}{2} \left( \frac{|\epsilon_q|}{\delta q} + \frac{|\epsilon_p|}{\delta p} \right)
+\label{eq:SimplifiedErasureAction}
+\end{align}
+
+By defining the dimensionless relative quantization errors $\tilde{\epsilon}_q = |\epsilon_q|/\delta q$ and $\tilde{\epsilon}_p = |\epsilon_p|/\delta p$, the equation simplifies to a strictly scale-independent form:
+\begin{equation}
+\label{eq:DimensionlessErasureAction}
+\text{Erasure Action} = \frac{A}{2} (\tilde{\epsilon}_q + \tilde{\epsilon}_p)
+\end{equation}
+
+Because the minimal-action path strictly limits the residual displacement to the bounds of the resolved grid, the relative errors satisfy $\tilde{\epsilon}_q \le 1$ and $\tilde{\epsilon}_p \le 1$. Evaluating the worst-case maximal displacement ($\tilde{\epsilon}_q = \tilde{\epsilon}_p = 1$) analytically recovers the thermodynamic bound defined in Eq.~\ref{eq:Hero}:
+\begin{align}
+\text{Erasure Action} &\le \frac{A}{2} (1 + 1) \nonumber \\
+K E_L \tau &\le A
 \end{align}
 
 \section{Numerical Simulations}
