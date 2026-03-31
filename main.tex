@@ -130,7 +130,7 @@ To express this thermodynamic limit as a phase-space volume, it is dimensionally
 \text{Erasure Action} = K E_L \tau
 \end{equation}
 
-We validate this definition by applying it to the minimal quantum phase space (a de Gosson blob), which is bounded by a minimum action of $h/2$. If this fundamental space is saturated by one position bit and one momentum bit ($K=2$), the minimal erasure action is:
+We validate this definition by applying it to the minimal quantum phase space (a de Gosson blob), which is bounded by a minimum action of $h/2$. If this fundamental space is saturated by one position bit and one momentum bit ($K=K_q+K_p=2$), the minimal erasure action is:
 
 \begin{equation}
 \label{eq:MinimalErasureAction}
@@ -147,12 +147,14 @@ Solving for $\tau$ exactly recovers the Margolus-Levitin limit for the minimum t
 This demonstrates that the Margolus-Levitin switching time naturally emerges as the limiting quantum case of a generalized thermodynamic erasure action.
 
 
-\subsection{Erasure Action and Classical Action}
+\subsection{Lloyd: Erasure Action and Classical Action}
 
 \begin{equation}
 \label{eq:ErasureAndClassicalActionPlain}
 \text{Erasure Action} \le \text{Classical Action}
 \end{equation}
+
+Lloyd demonstrated that the number of elementary logical operations a physical system can perform is fundamentally bounded by its total available action \cite{Lloyd2000}. Applying this limit to thermodynamics, the total action required to erase $K$ bits of information cannot exceed the classical action capacity, $A$, of the surrounding phase space:
 
 \begin{equation}
 \label{eq:ErasureAndClassicalAction}
@@ -165,14 +167,14 @@ Planck demonstrated that a classical phase space of area $A$ has a capacity of $
 
 \begin{equation}
 \label{eq:GeometricActionLimit}
-K E_L \tau \le \frac{A}{h} (\pi \delta q  \Delta p + \pi \Delta q \delta p)
+(K_q + K_p) E_L \tau \le \frac{A}{h} (\pi \delta q  \Delta p + \pi \Delta q \delta p)
 \end{equation}
 
 Because the minimal-action erasure path from a microstate to its target coordinate leaves residual displacements $|\epsilon_q| \le \delta q$ and $|\epsilon_p| \le \delta p$, the exact Erasure Action is the scaled area of these physical residuals:
 
 \begin{equation}
 \label{eq:ExactGeometricAction}
-K E_L \tau = \frac{A}{h} (\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)
+(K_q + K_p) E_L \tau = \frac{A}{h} (\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)
 \end{equation}
 
 \subsection{Quantum Density from Erasure}
