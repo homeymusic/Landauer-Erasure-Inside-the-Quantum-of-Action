@@ -34,9 +34,8 @@
 \title{Information Erasure Inside the Quantum of Action}
 
 \begin{abstract}
-Quantum microstates are operationally indistinguishable inside Planck's quantum of action. We show that Landauer's principle compels the erasure of each microstate into the minimal-action state. This erasure granulates the continuum, selecting the discrete configurations of quantum mechanics at low action and smooth classical trajectories at high action.
+Quantum microstates are operationally indistinguishable inside Planck's quantum of action. We show that Landauer's principle compels the thermodynamic erasure of the minimal-action microstate, yielding the observed classical state. This erasure granulates the continuum, selecting the discrete configurations of quantum mechanics at low action and smooth classical trajectories at high action.
 \end{abstract}
-
 
 \author{Brian S. Mulloy\orcidlink{0000-0002-1803-3172}}
 \email{brian@homeymusic.com}
@@ -47,7 +46,7 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 
 \section{De Gosson: The Quantum Blob}
 
-Let a microstate be defined by phase-space coordinates $(q,p)$, where $q$ is position and $p$ is momentum. According to the Heisenberg uncertainty principle \cite{Heisenberg1927}:
+Let phase-space coordinates be $(q,p)$, where $q$ is position and $p$ is momentum. According to the Heisenberg uncertainty principle \cite{Heisenberg1927}:
 
 \begin{equation}
 \label{eq:HeisenbergVariance}
@@ -67,14 +66,19 @@ A = \pi (\sqrt{2}\sigma_q) (\sqrt{2}\sigma_p) = 2\pi \sigma_q \sigma_p
 Saturating the Heisenberg bound \cite{Heisenberg1927} ($\sigma_q \sigma_p = \hbar/2$) gives the area of the quantum blob $A_b$ \cite{DeGosson2003}:
 
 \begin{equation}
+\label{eq:SimpleLanguageOneBlob}
+\text{Quantum Blob} = \frac{1}{2} \cdot \text{Quantum of Action}
+\end{equation}
+
+\begin{equation}
 \label{eq:SymplecticCapacity}
-A_b = 2\pi \left( \frac{\hbar}{2} \right) = \frac{h}{2}
+A_b = \frac{h}{2}
 \end{equation}
 
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{erase.pdf}
-\caption{\textbf{Information erasure inside the quantum of action} (schematic). Boundaries $\Delta q$ and $\Delta p$ determine the classical action area $A$ in phase space. The reciprocal relations $\delta q = \hbar / \Delta p$ and $\delta p = \hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$, whose sum is the quantum of action $h$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from each microstate $(q_\mu, p_\mu)$ to the minimal-action state $(q_b,p_b)$ of the blobs. The erasure follows the minimal-action path with binary encoding $s^*$ whose bit count is the Kolmogorov complexity $K = |s^*|$. The physical scales satisfy $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$, bounding the erasure action $\frac{A}{h}(\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)$.}
+\caption{\textbf{Information erasure inside the quantum of action} (schematic). Boundaries $\Delta q$ and $\Delta p$ determine the classical action area $A$ in phase space. The reciprocal relations $\delta q = \hbar / \Delta p$ and $\delta p = \hbar / \Delta q$ characterize the symplectic squeezing of the conjugate pair of quantum blobs, $\pi \delta q \Delta p = \frac{h}{2}$ and $\pi \Delta q \delta p = \frac{h}{2}$, whose sum is the quantum of action $h$. The values $\epsilon_q$ and $\epsilon_p$ are the erasure distances from each microstate $(q_\mu, p_\mu)$ to the minimal-action blob centers $(q_b,p_b)$. The erasure follows the minimal-action path with binary encoding $s^*$ whose bit count is the Kolmogorov complexity $K = |s^*|$. The physical scales satisfy $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$, bounding the erasure action $\frac{A}{h}(\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)$.}
 \label{fig:erase_schematic}
 \end{figure}
 
@@ -286,7 +290,7 @@ This denominator sets the physical clock. A system maintains its quantum behavio
 
 \section{Numerical Simulations}
 
-We leverage modified sequences \cite{Aiylam2013} to extend the standard Stern-Brocot tree \cite{ConcreteMath} across the entire real line, $\mathbb{R}$, by initializing the search bounds at $\pm \infty$. We simulate the physical encoding function $\mathcal{E}_U$:
+ To simulate the physical encoding function $\mathcal{E}_U$, we leverage modified sequences \cite{Aiylam2013} to extend the standard Stern-Brocot tree \cite{ConcreteMath} across the entire real line, $\mathbb{R}$, by initializing the search bounds at $\pm \infty$:
 
 \begin{algorithmic}[1]
 \Function{$\mathcal{E}_U$}{$x_b, \delta x$}
@@ -311,7 +315,9 @@ We leverage modified sequences \cite{Aiylam2013} to extend the standard Stern-Br
 \EndFunction
 \end{algorithmic}
 
-The minimal program $s_x^* = \operatorname{reverse}(\operatorname{invert}({s_x}))$ is irreversibly destroyed, clearing the tape on $U$:
+For example, let $s_x = \texttt{1101}$, then $\operatorname{invert}(\texttt{1101}) = \texttt{0010}$, and $s_x^* = \operatorname{reverse}(\texttt{0010}) = \texttt{0100}$.
+
+The minimal program $s_x^*$ is irreversibly destroyed, clearing the tape on $U$.
 
 \begin{algorithmic}[1]
 \Function{ERASE}{$s_x^*$}
@@ -348,15 +354,6 @@ The area of this Fritz John ellipsoid establishes a geometric uncertainty relati
 \end{equation}
 
 This approach resolves {S}chr{\"{o}}dinger's cat paradox \cite{Schrodinger1980Trimmer}: macroscopic action squeezes quantum uncertainty into fine phase-space crosshairs, enforcing microscopic precision and naturally restoring the correspondence principle.
-
-\section{Ideas to Explore}
-
-\section{Excess Action}
-
-\begin{equation}
-\label{eq:ExcessAction}
-\xi_q = \delta q - |\epsilon_q| \quad \text{and} \quad \xi_p = \delta p - |\epsilon_p| 
-\end{equation}
 
 \bibliography{main} 
 \end{document}
