@@ -21,7 +21,7 @@
       color=gray!80, 
       font=\fontfamily{FiraMono-TLF}\selectfont\footnotesize
     ] at ([xshift=1.2cm]current page.west) {
-        WORKING DRAFT \quad $\bullet$ \quad \DTMnow \quad $\bullet$ \quad doi.org/10.17605/OSF.IO/EV8H6 \quad $\bullet$ \quad Homey Music, Detroit, USA
+        WORKING DRAFT \quad $\bullet$ \quad \DTMnow \quad $\bullet$ \quad doi.org/10.17605/OSF.IO/EV8H6 \quad $\bullet$ \quad Homey Music, Corktown, Detroit, USA
     };
   \end{tikzpicture}
 }
@@ -45,7 +45,9 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 
 \maketitle
 
-\subsection{De Gosson: The Quantum Blob}
+\section{De Gosson: The Quantum Blob}
+
+Let a microstate be defined by phase-space coordinates $(q,p)$, where $q$ is position and $p$ is momentum. According to the Heisenberg uncertainty principle \cite{Heisenberg1927}:
 
 \begin{equation}
 \label{eq:HeisenbergVariance}
@@ -62,11 +64,11 @@ Quantum microstates are operationally indistinguishable inside Planck's quantum 
 A = \pi (\sqrt{2}\sigma_q) (\sqrt{2}\sigma_p) = 2\pi \sigma_q \sigma_p
 \end{equation}
 
-Saturating the Heisenberg bound ($\sigma_q \sigma_p = \hbar/2$) gives the minimum area:
+Saturating the Heisenberg bound \cite{Heisenberg1927} ($\sigma_q \sigma_p = \hbar/2$) gives the area of the quantum blob $A_b$ \cite{DeGosson2003}:
 
 \begin{equation}
 \label{eq:SymplecticCapacity}
-A_{\text{blob}} = 2\pi \left( \frac{\hbar}{2} \right) = \frac{h}{2}
+A_b = 2\pi \left( \frac{\hbar}{2} \right) = \frac{h}{2}
 \end{equation}
 
 \begin{figure}[t!]
@@ -76,7 +78,7 @@ A_{\text{blob}} = 2\pi \left( \frac{\hbar}{2} \right) = \frac{h}{2}
 \label{fig:erase_schematic}
 \end{figure}
 
-\subsection{Zurek: One Blob or Two?}
+\section{Zurek: One Blob or Two?}
 
 Zurek \cite{Zurek2001} demonstrated that a quantum state constrained by the classical action boundaries $\Delta q$ and $\Delta p$ develops sub-Planck structures defined by the reciprocal limits:
 
@@ -92,7 +94,7 @@ Expressing Zurek's reciprocal limits as phase-space areas yields a conjugate pai
 \pi \delta q \Delta p = \frac{h}{2} \quad \text{and} \quad \pi \Delta q \delta p = \frac{h}{2}
 \end{equation}
 
-Because both areas are required to bound the space, the total quantum of action $h$ is defined by their geometric sum:
+Because both areas are required to bound the space, the total quantum of action $h$ is defined by their sum:
 
 \begin{equation}
 \label{eq:SimpleLanguageBlobs}
@@ -104,26 +106,25 @@ Because both areas are required to bound the space, the total quantum of action 
 h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \end{equation}
 
-\subsection{Landauer: Information Erasure}
+\section{Landauer: Information Erasure}
+
+Landauer's principle establishes the minimum thermodynamic cost of information erasure \cite{Landauer1961}:
 
 \begin{equation}
-\label{eq:LandauerErasureEnergy}
+\label{eq:LandauerErasureOneBit}
 E_L = k_B T \ln{2}
 \end{equation}
 
-\begin{equation}
-\label{eq:LandauerErasure1Bit}
-E_{L,K=1} = k_B T \ln{2}
-\end{equation}
+The total energy dissipated scales with algorithmic information content, defined as the Kolmogorov complexity $K$ \cite{Kolmogorov1965}:
 
 \begin{equation}
-\label{eq:TotalLandauerErasureEnergy}
-E_L = K k_B T \ln{2}
+\label{eq:LandauerErasureK}
+\text{Total Landauer Cost} = K k_B T \ln{2}
 \end{equation}
 
-\subsection{Margolus-Levitin: Erasure Action}
+\section{Margolus-Levitin: Erasure Action}
 
-To express this thermodynamic limit as a phase-space volume, it is dimensionally necessary to introduce a characteristic erasure time, $\tau$:
+To express erasure action as a phase-space volume, it is dimensionally necessary to introduce a characteristic erasure time, $\tau$:
 
 \begin{equation}
 \label{eq:ErasureActionDefinition}
@@ -137,56 +138,48 @@ We validate this definition by applying it to the minimal quantum phase space (a
 2 E_L \tau = \frac{h}{2}
 \end{equation}
 
-Solving for $\tau$ exactly recovers the Margolus-Levitin limit for the minimum time to evolve to an orthogonal state ($\tau_\perp$):
+Solving for $\tau$ recovers the Margolus-Levitin limit \cite{MargolusLevitin1998} for the minimum time to evolve to an orthogonal state ($\tau_\perp$):
 
 \begin{equation}
 \label{eq:MLErasureTime}
-\tau = \frac{h}{4 E_L} = \tau_\perp
+\tau_{K=2} = \frac{h}{4 E_L} = \tau_\perp
 \end{equation}
 
-This demonstrates that the Margolus-Levitin switching time naturally emerges as the limiting quantum case of a generalized thermodynamic erasure action.
+This demonstrates that the Margolus-Levitin minimal switching time from above corresponds to the maximal erasure time (e.g., decoherence time) from below.
 
-
-\subsection{Lloyd: Erasure Action and Classical Action}
+\section{Lloyd: Erasure Action and Classical Action}
 
 \begin{equation}
 \label{eq:ErasureAndClassicalActionPlain}
 \text{Erasure Action} \le \text{Classical Action}
 \end{equation}
 
-Lloyd demonstrated that the number of elementary logical operations a physical system can perform is fundamentally bounded by its total available action \cite{Lloyd2000}. Applying this limit to thermodynamics, the total action required to erase $K$ bits of information cannot exceed the classical action capacity, $A$, of the surrounding phase space:
+Lloyd demonstrated that the number of elementary logical operations $N$ a physical system can perform in time $t$ is fundamentally bounded by its total available action, $N \le \frac{2 E t}{\pi \hbar}$ \cite{Lloyd2000}. Applying this limit to the geometry of phase space, the total action required to erase $K$ bits of information cannot exceed the classical action capacity, $A$:
 
 \begin{equation}
 \label{eq:ErasureAndClassicalAction}
 K E_L \tau \le A
 \end{equation}
 
-\subsection{Planck: Quantum Capacity}
+\section{Planck: Quantum Capacity}
 
-Planck demonstrated that a classical phase space of area $A$ has a capacity of $\Gamma = A/h$ quanta. Scaling the local quantum boundaries ($\delta q, \delta p$) by this macroscopic capacity, we construct the upper limit of the Erasure Action:
+Planck demonstrated \cite{Planck1906} that a classical phase space of area $A$ has a capacity of $\Gamma = A/h$ quanta. Scaling the local quantum boundaries ($\delta q, \delta p$) by this macroscopic capacity, we construct the boundaries of the Erasure Action:
 
 \begin{equation}
 \label{eq:GeometricActionLimit}
 (K_q + K_p) E_L \tau \le \frac{A}{h} (\pi \delta q  \Delta p + \pi \Delta q \delta p)
 \end{equation}
 
-Because the minimal-action erasure path from a microstate to its target coordinate leaves residual displacements $|\epsilon_q| \le \delta q$ and $|\epsilon_p| \le \delta p$, the exact Erasure Action is the scaled area of these physical residuals:
+Because the minimal-action erasure paths from each microstate to the minimal-action state are bounded by $|\epsilon_q| \le \delta q$ and $|\epsilon_p| \le \delta p$, the erasure action is:
 
 \begin{equation}
 \label{eq:ExactGeometricAction}
 (K_q + K_p) E_L \tau = \frac{A}{h} (\pi |\epsilon_q| \Delta p + \pi \Delta q |\epsilon_p|)
 \end{equation}
 
-\subsection{Quantum Density from Erasure}
+\section{Quantum Density from Erasure}
 
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=\linewidth]{figures/harmonic_oscillator.pdf}
-\caption{\textbf{Harmonic Oscillator Densities from Computation Simulations}.}
-\label{fig:harmonic_oscillator}
-\end{figure}
-
-Instead of the Wigner quasi-probability distribution $W(q,p)$, we introduce Landauer erasure density $L(q,p)$.
+Instead of the Wigner quasi-probability distribution $W(q,p)$ \cite{Wigner1932}, we introduce the Landauer erasure density $L(q,p)$. While Wigner distributions formally possess infinite support, the thermodynamic cost of erasure is dominated by the localized phase-space volume. Therefore, we treat the classical action boundaries $\Delta q$ and $\Delta p$ as operational cutoffs, remaining agnostic to the exponentially vanishing tails of the underlying state:
 
 \begin{equation}
 \label{eq:JointErasure}
@@ -200,41 +193,112 @@ N(q) = \sum_{p} L(q,p)
 N(p) = \sum_{q} L(q,p)
 \end{equation}
 
-\subsection{Encoding and Erasure of Quantum States}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/harmonic_oscillator.pdf}
+\caption{\textbf{Harmonic Oscillator Densities from Computation Simulations}.}
+\label{fig:harmonic_oscillator}
+\end{figure}
 
-$$
-\texttt{encode}(q_b, \delta q) \rightarrow (q_\mu, s_q)
-\quad \text{and} \quad
-\texttt{encode}(p_b, \delta p) \rightarrow (p_\mu, s_p)
-$$
+\section{Erasure on a Universal Computer}
 
-$$
-s_q^* = \operatorname{reverse}(\overline{s_q})
-\quad \text{and} \quad
-s_p^* = \operatorname{reverse}(\overline{s_p})
-$$
+Let $U$ be a Universal Reversible Turing Machine. A computable encoding function, $\mathcal{E}_U$, encodes the minimal-action microstate $x_\mu$ inside the classical action boundary $\delta x$ centered on the blob component $x_b$ as a binary program string $s_x$:
 
+\begin{equation}
+\label{eq:EncoderFunction}
+\mathcal{E}_U(x_b, \delta x) \rightarrow (x_\mu, s_x)
+\end{equation}
 
-$$
-K_q = |s_q^*|
-\quad \text{and} \quad
-K_p = |s_p^*|
-$$
+Following Bennett's protocol for logical reversibility \cite{Bennett1973}, we invert and reverse $s_x$ to form the minimal uncomputation path:
 
-$$
-\texttt{erase}(s_q^*) \rightarrow K_q E_L \tau
-\quad \text{and} \quad
-\texttt{erase}(s_p^*) \rightarrow K_p E_L \tau
-$$
+\begin{equation}
+\label{eq:KolmogorovComplexity}
+s_x^* = \operatorname{reverse}(\operatorname{invert}({s_x}))
+\end{equation}
 
-Each microstate erases into the minimal-action state $(q_\mu, p_\mu) \rightarrow (q_b, p_b)$: $\epsilon_q = q_\mu - q_b$ and $\epsilon_p = p_\mu - p_b$, such that $|\epsilon_q| \le \delta q \le \Delta q$ and $|\epsilon_p| \le \delta p \le \Delta p$. The observed macroscopic state $(q,p)$ is the phase-space displacement $(\epsilon_q, \epsilon_p)$ scaled by the quantum capacity $A/h$:
+Algorithmic erasure of $s_x^*$, where $K_x=|s_x^*|$, incurs Landauer's thermodynamic cost:
+
+\begin{equation}
+\label{eq:ErasureFunction}
+\texttt{ERASE}(s_x^*) \rightarrow K_x E_L \tau
+\end{equation}
+
+Each microstate $(q_\mu, p_\mu)$ uncomputes to $(q_b, p_b)$, creating a displacement in phase space $\epsilon_q = q_\mu - q_b$ and $\epsilon_p = p_\mu - p_b$. The observed macroscopic coordinates $(q,p)$ are those displacements $(\epsilon_q,\epsilon_p)$ scaled by Planck's quantum capacity $A/h$:
 
 \begin{equation}
 \label{eq:ObservedCoordinates}
 q = \frac{A}{h} \epsilon_q \quad \text{and} \quad p = \frac{A}{h} \epsilon_p
 \end{equation}
 
-\subsection{Action, Resolution, and Bits}
+
+\section{Numerical Simulations}
+
+We leverage modified sequences \cite{Aiylam2013} to extend the standard Stern-Brocot tree \cite{ConcreteMath} across the entire real line, $\mathbb{R}$, by initializing the search bounds at $\pm \infty$. We simulate the physical encoding function $\mathcal{E}_U$ for any phase-space coordinate, $x \in \{q, p\}$:
+
+\begin{algorithmic}[1]
+\Function{$\mathcal{E}_U$}{$x_b, \delta x$}
+    \State $\text{left} \gets (-1, 0)$
+    \State $\text{num} \gets 0, \quad \text{den} \gets 1$
+    \State $x_\mu \gets \text{num} / \text{den}$
+    \State $\text{right} \gets (1, 0)$
+    \State $s_x \gets \text{``''}$
+    \While{$|x_\mu - x_b| > \delta x$}
+        \If{$x_\mu < x_b$} 
+            \State $\text{left} \gets (\text{num}, \text{den})$
+            \State $s_x \gets s_x + \text{``1''}$
+        \Else 
+            \State $\text{right} \gets (\text{num}, \text{den})$
+            \State $s_x \gets s_x + \text{``0''}$
+        \EndIf
+        \State $\text{num} \gets \text{left}_{\text{num}} + \text{right}_{\text{num}}$
+        \State $\text{den} \gets \text{left}_{\text{den}} + \text{right}_{\text{den}}$
+        \State $x_\mu \gets \text{num} / \text{den}$
+    \EndWhile
+    \State \Return $x_\mu, s_x$
+\EndFunction
+\end{algorithmic}
+
+The minimal program $s_x^*$ is irreversibly destroyed, clearing the tape on $U$:
+
+\begin{algorithmic}[1]
+\Function{ERASE}{$s_x^*$}
+    \State $K_x \gets |s_x^*|$
+    \While{$K_x > 0$}
+        \State \Call{ShiftLeft}{$s_x^*$} 
+        \Statex \Comment{Dissipate heat $k_B T \ln{2}$ over time $\tau$}
+        \State $K_x \gets |s_x^*|$
+    \EndWhile
+\EndFunction
+\end{algorithmic}
+
+\section{A Geometric Uncertainty Principle}
+
+Zurek's Wigner compass demonstrates that quantum interference creates rectangular sub-Planck tiles of area $a = \delta q \delta p$ \cite{Zurek2001}. Generalizing these rectangular bounds to symplectic geometry, we bound this uncertainty within an ellipsoid. 
+
+In the context of phase-space polar duality \cite{deGosson2022}, the unique maximum-volume ellipsoid inscribed within a convex body is the Fritz John ellipsoid \cite{John1948}. While de Gosson's John ellipsoid is saturated at the quantum of action ($h/2$), Zurek's sub-Planck interference forces this inner ellipsoid to be strictly smaller:
+
+\begin{equation}
+\label{eq:SubPlanckJohnEllipsoid}
+\pi \delta q \delta p \le \frac{h}{2}
+\end{equation}
+
+The area of this Fritz John ellipsoid establishes a geometric uncertainty relation bounded by the classical action:
+
+\begin{equation}
+\label{eq:GeometricUncertaintyPrinciplePlainLanguage}
+\text{Uncertainty} \propto \frac{1}{\text{Classical Action}}
+\end{equation}
+
+\begin{equation}
+\label{eq:ZurekUncertaintyPrinciple}
+\delta q \delta p = \frac{\hbar^2}{\Delta q \Delta p}
+\end{equation}
+
+This approach resolves {S}chr{\"{o}}dinger's cat paradox \cite{Schrodinger1980Trimmer}: macroscopic action squeezes quantum uncertainty into fine phase-space crosshairs, enforcing microscopic precision and naturally restoring the correspondence principle.
+
+\section{Ideas to Explore}
+
+\section{Action, Resolution, and Bits}
 
 \begin{equation}
 \label{eq:ResolvingPowerPlain}
@@ -260,127 +324,12 @@ K_q
 K_p 
 \end{equation}
 
-\subsection{Zurek Uncertainty Principle}
-
-\begin{equation}
-\label{eq:GeometricUncertaintyPrinciplePlainLanguage}
-\text{Uncertainty} \propto \frac{1}{\text{Classical Action}}
-\end{equation}
-
-\begin{equation}
-\label{eq:ZurekUncertaintyPrinciple}
-\delta q \delta p = \frac{\hbar^2}{\Delta q \Delta p}
-\end{equation}
-
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=\linewidth]{figures/john_ellipse.pdf}
-\caption{\textbf{The John Ellipse Uncertainty} (schematic). The area of the John ellipse contained within the orthogonal pair of quantum blobs is $\pi \delta q \delta p = \frac{h^2}{4 \pi \Delta q \Delta p}$, which yields the uncertainty relation $\delta q \delta p = \frac{\hbar^2}{\Delta q \Delta p}$.}
-\end{figure}
-
-
-\subsection{Excess Action}
+\section{Excess Action}
 
 \begin{equation}
 \label{eq:ExcessAction}
 \xi_q = \delta q - |\epsilon_q| \quad \text{and} \quad \xi_p = \delta p - |\epsilon_p| 
 \end{equation}
-
-\section{Correspondences}
-
-\begin{itemize}
-    \item characteristic time and quantum speed limits $\tau_{K=2}=\tau_\perp = \frac{h}{4 E_L}$
-    \item erasure temperatures $T$ 
-    \item information flux and van der Pauw $\frac{\pi}{\ln{2}}$
-    \item Bekenstein bounds
-    \item Fisher information
-    \item Zurek tile $a$ and uncertainty
-    \item Susskind's ``Complexity equals Action''
-\end{itemize}
-
-\section{Dimensionless Equations}
-
-\begin{align}
-\pi \delta q \Delta p &= \frac{h}{2} \\
-\delta q &= q_0 \widetilde{\delta q} \\
-\Delta p &= p_0 \widetilde{\Delta p} \\
-\pi q_0 p_0 &= \frac{h}{2} \\
-\pi q_0 p_0 \widetilde{\delta q} \widetilde{\Delta p} &= \frac{h}{2} \\
-\widetilde{\delta q} \widetilde{\Delta p} &= 1 \\
-\widetilde{\delta q} &= \frac{1}{\widetilde{\Delta p}}
-\end{align}
-
-\section{Numerical Simulations}
-
-Let the generic variable $x \in \{q, p\}$ denote any phase-space component.
-
-\begin{algorithmic}[1]
-\Function{ENCODE}{$x_b, \delta x$}
-    \State $\text{left} \gets (-1, 0)$
-    \State $\text{num} \gets 0, \quad \text{den} \gets 1$
-    \State $x_\mu \gets \text{num} / \text{den}$
-    \State $\text{right} \gets (1, 0)$
-    \State $s_x \gets \text{``''}$
-    \While{$|x_\mu - x_b| > \delta x$}
-        \If{$x_\mu < x_b$} 
-            \State $\text{left} \gets (\text{num}, \text{den})$
-            \State $s_x \gets s_x + \text{``1''}$
-        \Else 
-            \State $\text{right} \gets (\text{num}, \text{den})$
-            \State $s_x \gets s_x + \text{``0''}$
-        \EndIf
-        \State $\text{num} \gets \text{left}_{\text{num}} + \text{right}_{\text{num}}$
-        \State $\text{den} \gets \text{left}_{\text{den}} + \text{right}_{\text{den}}$
-        \State $x_\mu \gets \text{num} / \text{den}$
-    \EndWhile
-    \State $\epsilon_x \gets x_\mu - x_b$
-    \State \Return $\epsilon_x, x_\mu, s_x$
-\EndFunction
-\end{algorithmic}
-
-We invert and reverse the encoding sequence $s_x$ to form the minimal erasure path, $s_x^* = \operatorname{reverse}(\overline{s_x})$, which is irreversibly destroyed.
-
-\begin{algorithmic}[1]
-\Function{ERASE}{$s_x^*$}
-    \State $K_x \gets |s_x^*|$
-    \While{$K_x > 0$}
-        \State \Call{ShiftLeft}{$s_x^*$} 
-        \Statex \Comment{\text{Dissipate Landauer heat} $k_B T \ln{2}$ \text{over time} $\tau$}
-        \State $K_x \gets |s_x^*|$
-    \EndWhile
-\EndFunction
-\end{algorithmic}
-
-\subsection{The Harmonic Oscillator Simulation}
-
-\section{Foundational Manuscripts}
-
-\begin{itemize}
-    \item \textbf{Uncertainty}
-    \begin{itemize}
-        \item Heisenberg \cite{Heisenberg1927}
-        \item de Gosson \cite{DeGosson2003}
-        \item Zurek \cite{Zurek2001}
-    \end{itemize}
-    
-    \item \textbf{Thermodynamics}
-    \begin{itemize}
-        \item Landauer \cite{Landauer1961}
-        \item Margolus and Levitin \cite{MargolusLevitin1998}
-    \end{itemize}
-    
-    \item \textbf{Stern-Brocot Tree}
-    \begin{itemize}
-        \item Graham, Knuth, and Patashnik \cite{ConcreteMath}
-        \item Aiylam \cite{Aiylam2013}
-    \end{itemize}
-    
-    \item \textbf{Criticism of Macroscopic $\Delta q \Delta p$}
-    \begin{itemize}
-        \item Schr\"{o}dinger \cite{Schrodinger1980Trimmer}
-    \end{itemize}
-
-\end{itemize}
 
 \bibliography{main} 
 \end{document}
