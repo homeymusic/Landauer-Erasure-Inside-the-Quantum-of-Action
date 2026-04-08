@@ -295,34 +295,47 @@ The foundation of our topological model rests on four de Gosson ellipsoids. By d
 
 \subsection{Semiclassical Harmonic Oscillator}
 
-For the symmetrical harmonic oscillator analyzed in this work, the dimensionless classical boundaries expand uniformly, such that $\widetilde{\Delta q} = \widetilde{\Delta p}$.
+For the symmetrical harmonic oscillator, the dimensionless classical boundaries expand uniformly: $\widetilde{\Delta q} = \widetilde{\Delta p}$.
 
-The relative action of the system is given by the product of these classical boundaries: $A/A_0 = \widetilde{\Delta q} \widetilde{\Delta p}$. Consequently, the classical boundary for any target action level is given by:
+The relative action is $A/A_0 = \widetilde{\Delta q} \widetilde{\Delta p}$. For a given action level $A$, the classical boundaries are:
 \begin{equation}
 \widetilde{\Delta q} = \sqrt{\frac{A}{A_0}} \quad \text{and} \quad \widetilde{\Delta p} = \sqrt{\frac{A}{A_0}}
 \end{equation}
 
-While these dimensionless boundaries define the radial geometry of the phase-space action, the physical state of the harmonic oscillator evolves over a closed periodic orbit. Integrating the action over this closed classical trajectory introduces the semiclassical angular period $2\pi$. To preserve the covariant phase-space volume during this 1D algorithmic projection, the operational tolerance of the search algorithm is strictly bounded by the orbital squeezed boundary:
+Substituting these into the constraints of the squeezed conjugate ellipses yields the sub-Planck limits:
 \begin{equation}
-\widetilde{\delta q} = \frac{1}{2\pi \widetilde{\Delta p}} = \frac{1}{2\pi} \sqrt{\frac{A_0}{A}}
+\widetilde{\delta q} = \sqrt{\frac{A_0}{A}} \quad \text{and} \quad \widetilde{\delta p} = \sqrt{\frac{A_0}{A}}
 \end{equation}
 
-This normalization guarantees that at the ground state ($A = A_0$), the classical radial boundaries converge ($\widetilde{\Delta q} = \widetilde{\Delta p} = 1$). This topological intersection marks the phase-space boundary where Heisenberg’s uncertainty limit meets Zurek’s sub-Planck bounds, collapsing the periodic orbit and degenerating the system into a single quantum blob.
+At the ground state ($A = A_0$), the classical and squeezed boundaries converge: $\widetilde{\Delta q} = \widetilde{\Delta p} = \widetilde{\delta q} = \widetilde{\delta p} = 1$. This topological intersection of four de Gosson ellipsoids marks the phase-space boundary where Heisenberg's uncertainty limit meets Zurek's sub-Planck bounds, defining a single quantum blob.
+
+These dimensionless boundaries describe radial phase-space geometry. Because the harmonic oscillator evolves over a closed periodic orbit, projecting this 2D phase space onto a 1D cross-section requires scaling by the time-averaged linear footprint of the orbit. Integrating the absolute displacement over the full angular period yields a geometric projection factor of $2/\pi$. The projected 1D squeezed position boundary is therefore:
+
+\begin{equation}
+\widetilde{\delta q}_{\text{orbit}} = \frac{2}{\pi} \sqrt{\frac{A_0}{A}}
+\quad \text{and} \quad
+\widetilde{\delta p}_{\text{orbit}} = \frac{2}{\pi} \sqrt{\frac{A_0}{A}}
+\end{equation}
 
 \subsection{Simulation Architecture}
 
-We simulated a total of 990,109,901 individual erasures across 9,901 discrete values of available classical action, sweeping 100,001 independent classical target coordinates ($\tilde{x}_b$) per action level. To ensure uniform data density and avoid quadratic warping at high energies, we performed a linear scan through the classical action space from $A = 1.0 A_0$ to $A = 100.0 A_0$ with a step size of $0.01 A_0$. The action values were mapped to the dimensionless classical boundaries ($\widetilde{\Delta x} = \sqrt{A/A_0}$) and the projected squeezed boundaries ($\widetilde{\delta x}_{\text{orbit}} = \frac{1}{2\pi}\sqrt{A_0/A}$) to seed the dynamic simulations.
+We simulated a total of 990,199,901 individual erasures across 9,901 discrete values of available classical action, sweeping 100,001 independent classical target coordinates ($\tilde{x}_b$) per action level. To ensure uniform data density and avoid quadratic warping at high energies, we performed a linear scan through the classical action space from $A = 1.0 A_0$ to $A = 100.0 A_0$ with a step size of $0.01 A_0$.
 
-For each state, the thermodynamic erasure sequence was computed using a custom C++ simulation engine bound to an R-based parallel data pipeline (\texttt{Rcpp} and \texttt{RcppParallel}). To simulate the physical encoding function $\operatorname{ENCODE}$, the topological partitioning was driven by the Stern-Brocot algorithmic engine. We leverage modified sequences \cite{Aiylam2013} to extend the Stern-Brocot tree \cite{ConcreteMath} across the entire real line, $\mathbb{R}$, by initializing the search boundaries at $\pm \infty$:
+To ensure the binary partitioning of the system preserves physical symmetry, the computational engine strictly evaluates the phase space over a normalized reference interval, $\tilde{x} \in [-1.0, 1.0]$. Therefore, the dynamic physical boundaries must be mapped into this relative coordinate space. Dividing the 1D physical squeezed boundary by the expanding classical macroscopic boundary yields the relative algorithmic tolerance required to resolve a single microstate:
+\begin{equation}
+\widetilde{\delta x}_{\text{rel}} = \frac{\widetilde{\delta x}}{\widetilde{\Delta x}} = \frac{\frac{2}{\pi}\sqrt{A_0/A}}{\sqrt{A/A_0}} = \frac{2}{\pi} \frac{A_0}{A}
+\end{equation}
+
+For each state, the thermodynamic erasure sequence was computed using a custom C++ simulation engine bound to an R-based parallel data pipeline (\texttt{Rcpp} and \texttt{RcppParallel}). To simulate the physical encoding function $\operatorname{ENCODE}$, the binary phase-space partitioning was driven by a Stern-Brocot tree. Seeded by the mapped target coordinates ($\tilde{x}_b$) and the relative algorithmic tolerance ($\widetilde{\delta x}_{\text{rel}}$), the fundamental interval is dynamically partitioned into a sequence of binary address bits:
 
 \begin{algorithmic}[1]
-\Function{ENCODE}{$\tilde{x}_b, \widetilde{\delta x}_{\text{orbit}}$}
+\Function{ENCODE}{$\tilde{x}_b, \widetilde{\delta x}_{\text{rel}}$}
     \State $\text{left} \gets (-1, 0)$
     \State $\text{num} \gets 0, \quad \text{den} \gets 1$
     \State $\tilde{x}_\mu^* \gets \text{num} / \text{den}$
     \State $\text{right} \gets (1, 0)$
     \State $s_x^* \gets \text{``''}$
-    \While{$|\tilde{x}_\mu^* - \tilde{x}_b| > \widetilde{\delta x}_{\text{orbit}}$}
+    \While{$|\tilde{x}_\mu^* - \tilde{x}_b| > \widetilde{\delta x}_{\text{rel}}$}
         \If{$\tilde{x}_\mu^* < \tilde{x}_b$} 
             \State $\text{left} \gets (\text{num}, \text{den})$
             \State $s_x^* \gets s_x^* + \text{``1''}$
@@ -338,7 +351,7 @@ For each state, the thermodynamic erasure sequence was computed using a custom C
 \EndFunction
 \end{algorithmic}
 
-The engine enforces a mathematical condition for compact support; the iterative \texttt{while} loop operates under a closed-set limit, halting the algorithm the moment the dimensionless erasure displacement $|\tilde{\epsilon}_x^*|$ satisfies the projected squeezed boundary $\widetilde{\delta x}_{\text{orbit}}$. This prevents artificial inflation of the Landauer action and ensures the phase-space volume is bounded by the classical action capacity. 
+The engine enforces a mathematical condition for compact support; the iterative \texttt{while} loop operates under a closed-set limit, halting the algorithm the moment the relative erasure displacement $|\tilde{\epsilon}_x^*|$ satisfies the mapped squeezed boundary $\widetilde{\delta x}_{\text{rel}}$. This prevents artificial inflation of the Landauer action and ensures the phase-space volume is bounded by the classical action capacity. 
 
 Once encoded, the universe must physically erase the state. For example, let $s_x^* = \mathtt{1101}$. Taking the bitwise complement gives $\bar{s}_x^* = \mathtt{0010}$, and reversing it yields the uncomputation path $(\bar{s}_x^*)^R = \mathtt{0100}$. By following $(\bar{s}_x^*)^R$, the encoded sequence $s_x^*$ is irreversibly destroyed. This erasure dissipates the Landauer action and yields the observable displacement:
 
