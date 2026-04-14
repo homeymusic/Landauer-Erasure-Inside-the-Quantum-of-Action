@@ -29,7 +29,7 @@
 
 \begin{document}
 
-\title{Landauer Erasure and the Quantum of Action}
+\title{Landauer's Principle and the Quantum of Action}
 
 \begin{abstract}
 Quantum microstates are operationally indistinguishable inside the quantum of action. We show that among these infinite possible microstates, the microstate requiring the least action to encode and erase is selected. Action capacity granulates the continuum. It resolves the coarse-grained configurations of quantum mechanics at low action into the fine-grained configurations of classical mechanics at high action.
@@ -45,7 +45,7 @@ Quantum microstates are operationally indistinguishable inside the quantum of ac
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{figures/quantum_of_action.png}
-\caption{\textbf{The quantum of action} (schematic, 1D case). By geometrically translating the statistical Heisenberg limit, $\sigma_q \sigma_p \ge \hbar/2$, the classical semi-axes $\Delta q = \sqrt{2}\sigma_q$ and $\Delta p = \sqrt{2}\sigma_p$ establish the relation $\pi \Delta q \Delta p \ge h/2$. This is characterized in phase space by the classical action area, $A \ge h/2$. Confined by these classical boundaries, the interior resolves into a conjugate pair of squeezed quantum blobs, $a_q = h/2$ and $a_p = h/2$, whose sum is the quantum of action, $h$. Specifically, $a_q$ is constrained by the squeezed boundary $\delta q = \hbar / \Delta p$ to an area of $\pi \delta q \Delta p = h/2$, while $a_p$ is constrained by $\delta p = \hbar / \Delta q$ to an area of $\pi \Delta q \delta p = h/2$. These squeezed boundaries enclose the interior ellipse with quantum action area $a \le h/2$, evaluated as $\pi \delta q \delta p = \pi \hbar^2/(\Delta q \Delta p)$. This inverse scaling geometrically enforces the correspondence principle by compressing the quantum action area $a$ into the center of fine crosshairs as the classical action area $A$ increases (see Fig.~\ref{fig:erasure_grid}). This geometric hierarchy establishes the quantum and classical relationships $a \le h/2 \le A$ and $a = (\pi \hbar)^2 / A$.}
+\caption{\textbf{The quantum of action} (schematic, 1D case). By geometrically translating the statistical Heisenberg limit, $\sigma_q \sigma_p \ge \hbar/2$, the classical semi-axes $\Delta q = \sqrt{2}\sigma_q$ and $\Delta p = \sqrt{2}\sigma_p$ establish the relation $\pi \Delta q \Delta p \ge h/2$. This is characterized in phase space by the classical action area, $A \ge h/2$. Confined by these classical boundaries, the interior resolves into a conjugate pair of squeezed quantum blobs, $a_q = h/2$ and $a_p = h/2$, whose sum is the quantum of action, $h$. Specifically, $a_q$ is constrained by the squeezed boundary $\delta q = \hbar / \Delta p$ to an area of $\pi \delta q \Delta p = h/2$, while $a_p$ is constrained by $\delta p = \hbar / \Delta q$ to an area of $\pi \Delta q \delta p = h/2$. These squeezed boundaries enclose the interior ellipse with quantum action area, $a \le h/2$, evaluated as $\pi \delta q \delta p = \pi \hbar^2/(\Delta q \Delta p)$. This inverse scaling geometrically enforces the correspondence principle by compressing the quantum action area $a$ into the center of fine crosshairs as the classical action area $A$ increases (see Fig.~\ref{fig:erasure_grid}). This geometric hierarchy establishes the quantum and classical relationships $a \le h/2 \le A$ and $a = (\pi \hbar)^2 / A$.}
 \label{fig:quantum_of_action}
 \end{figure}
 
@@ -85,7 +85,7 @@ De Gosson bridges this statistical uncertainty with phase-space geometry. By sat
 
 \begin{equation}
 \label{eq:SymplecticCapacity}
-\frac{h}{2} = A_b
+\frac{h}{2} = a_{\text{blob}}
 \end{equation}
 
 Protected by Gromov's non-squeezing theorem \cite{Gromov1985}, this $h/2$ minimum area is topologically conserved. Compressing the blob along one axis forces a proportional expansion along its conjugate.
@@ -96,11 +96,16 @@ Because both areas are required to bound the space, the total quantum of action 
 
 \begin{equation}
 \label{eq:SimpleLanguageBlobs}
-\text{Quantum of Action} = \text{Pair of Quantum Blobs}
+\text{Quantum of Action} = \text{Pair of Conjugate Blobs}
 \end{equation}
 
 \begin{equation}
 \label{eq:Blobs}
+h = a_q + a_p
+\end{equation}
+
+\begin{equation}
+\label{eq:BlobsArea}
 h = \pi \delta q \Delta p + \pi \Delta q \delta p
 \end{equation}
 
