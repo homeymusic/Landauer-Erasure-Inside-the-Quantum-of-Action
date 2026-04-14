@@ -240,11 +240,11 @@ When the classical momentum boundary ($\Delta p$) grows, the squeezed position b
 \label{fig:erasure_nodes}
 \end{figure}
 
-Standard phase-space formulations of quantum mechanics traditionally employ the Wigner quasi-probability distribution $W(q,p)$ \cite{Wigner1932}. In the context of information erasure, however, we instead introduce the Landauer erasure density $L(q,p)$ as a sum of discrete Iverson brackets \cite{Knuth1992}—mathematical switches that snap to exactly 1 when a microstate is occupied and 0 otherwise—over the $M$ accessible microstates:
+Standard phase-space formulations of quantum mechanics traditionally employ the Wigner quasi-probability distribution $W(q,p)$ \cite{Wigner1932}. In the context of information erasure, however, we instead introduce the Landauer erasure density $L(q,p)$ as a sum of discrete Iverson brackets \cite{Knuth1992}—mathematical switches that snap to exactly 1 when a coordinate is occupied and 0 otherwise—over the $B$ quantum blobs:
 
 \begin{equation}
 \label{eq:JointErasure}
-L(q,p) = \sum_{\mu=1}^{M} \left[ q = \frac{A}{\pi \hbar} \epsilon_{q,\mu} \right] \left[ p = \frac{A}{\pi \hbar} \epsilon_{p,\mu} \right]
+L(q,p) = \sum_{b=1}^{B} \left[ q = \frac{A}{\pi \hbar} \epsilon_{q,b} \right] \left[ p = \frac{A}{\pi \hbar} \epsilon_{p,b} \right]
 \end{equation}
 
 Because Landauer erasure evaluates to a discrete coordinate grid, the marginal distributions are obtained by summing over the conjugate variables:
